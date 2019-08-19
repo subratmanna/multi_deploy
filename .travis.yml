@@ -1,0 +1,23 @@
+sudo: required
+services:
+  -docker
+#before_install:
+#  - docker build -t server -f ./server/Dockerfile.dev ./server
+#  - docker build -t worker -f ./worker/Dockerfile.dev ./worker
+#  - docker build -t nginx -f ./nginx/Dockerfile.dev ./nginx
+#  - docker build -t client -f ./client/Dockerfile.dev ./client
+install:
+  - docker-compose build
+  - docker-compose up
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "Ndocker"
+  env: "Ndocker-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-155213612701"
+  bucket_path: "Ndocker-demo"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
