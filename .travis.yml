@@ -13,7 +13,7 @@ after_success:
   - docker build -t subratmanna/multiserver ./server
   - docker build -t subratmanna/multiworker ./worker
 #docker login 
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin registry.example.com
 #push build images to docker hub
   - docker push subratmanna/multiclient
   - docker push subratmanna/multinginx
