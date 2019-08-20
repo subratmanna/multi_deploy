@@ -2,23 +2,23 @@ sudo: required
 services:
   -docker
 before_install:
-  - docker build -t subrat/client -f ./client/Dockerfile.dev ./client
+  - docker build -t subratmanna/client -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run subrat/client npm test -- --coverage
+  - docker run subratmanna/client npm test -- --coverage
 
 after_success:
-  - docker build subrat/client ./client
-  - docker build subrat/nginx ./nginx
-  - docker build subrat/server ./server
-  - docker build subrat/worker ./worker
+  - docker build subratmanna/client ./client
+  - docker build subratmanna/nginx ./nginx
+  - docker build subratmanna/server ./server
+  - docker build subratmanna/worker ./worker
 #docker login 
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
 #push build images to docker hub
-  - docker push subrat/client
-  - docker push subrat/nginx
-  - docker push subrat/server
-  - docker push subrat/worker
+  - docker push subratmanna/client
+  - docker push subratmanna/nginx
+  - docker push subratmanna/server
+  - docker push subratmanna/worker
 
 #
 # deploy:
