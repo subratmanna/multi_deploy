@@ -8,17 +8,17 @@ script:
   - docker run subratmanna/client npm test -- --coverage
 
 after_success:
-  - docker build subratmanna/client ./client
-  - docker build subratmanna/nginx ./nginx
-  - docker build subratmanna/server ./server
-  - docker build subratmanna/worker ./worker
+  - docker build -t subratmanna/multiclient ./client
+  - docker build -t subratmanna/multinginx ./nginx
+  - docker build -t subratmanna/multiserver ./server
+  - docker build -t subratmanna/multiworker ./worker
 #docker login 
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
 #push build images to docker hub
-  - docker push subratmanna/client
-  - docker push subratmanna/nginx
-  - docker push subratmanna/server
-  - docker push subratmanna/worker
+  - docker push subratmanna/multiclient
+  - docker push subratmanna/multinginx
+  - docker push subratmanna/multiserver
+  - docker push subratmanna/multiworker
 
 #
 # deploy:
