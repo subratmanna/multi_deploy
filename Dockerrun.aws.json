@@ -24,7 +24,7 @@
         },
         {
             "name": "nginx",
-            "image": "subratmanna/nginx",
+            "image": "subratmanna/multinginx",
             "hostname": "nginx",
             "essential": true,
             "portMappings": [
