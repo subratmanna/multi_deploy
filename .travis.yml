@@ -13,7 +13,7 @@ after_success:
   - docker build -t subratmanna/multiserver ./server
   - docker build -t subratmanna/multiworker ./worker
 #docker login 
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password -stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #- docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
   #- docker login -u subratmanna -p Bishnu@20
 #push build images to docker hub
