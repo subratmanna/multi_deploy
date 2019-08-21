@@ -23,7 +23,7 @@ after_success:
   - docker push subratmanna/multiworker
 
 
- deploy:
+deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
   app: "Multi_Container"
