@@ -22,16 +22,16 @@ after_success:
   - docker push subratmanna/multiserver
   - docker push subratmanna/multiworker
 
-#
+
  deploy:
-   provider: elasticbeanstalk
-   region: "ap-south-1"
-   app: "Multi_Container"
-   env: "MultiContainer-env"
-   bucket_name: "elasticbeanstalk-ap-south-1-155213612701"
-   bucket_path: "Multi_Container"
-   on:
-     branch: master
-   access_key_id: $AWS_ACCESS_KEY
-   secret_access_key:
-     secure: "$AWS_SECRET_KEY"
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "Multi_Container"
+  env: "MultiContainer-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-155213612701"
+  bucket_path: "Multi_Container"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
